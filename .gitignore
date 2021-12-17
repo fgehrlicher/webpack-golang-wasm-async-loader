@@ -2,3 +2,5 @@ node_modules
 *.wasm
 dist
 .gocache
+.idea
+package-lock.json

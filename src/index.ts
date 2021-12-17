@@ -1,4 +1,3 @@
-import * as webpack from "webpack";
 import {readFileSync, unlinkSync} from "fs";
 import {basename, join} from "path";
 import {execFile} from "child_process";
@@ -9,8 +8,8 @@ export default gobridge(fetch('${filename}').then(response => response.arrayBuff
 
 const getGoBin = (root: string) => `${root}/bin/go`;
 
-function loader(this: webpack.loader.LoaderContext, contents: string) {
-  const cb = this.async();
+function loader(content: string) {
+  const callback = this.async();
 
   const opts = {
     env: {
@@ -28,7 +27,7 @@ function loader(this: webpack.loader.LoaderContext, contents: string) {
 
   execFile(goBin, args, opts, (err) => {
     if (err) {
-      cb(err);
+      callback(err);
       return;
     }
 
@@ -37,7 +36,7 @@ function loader(this: webpack.loader.LoaderContext, contents: string) {
     const emittedFilename = basename(this.resourcePath, ".go") + ".wasm";
     this.emitFile(emittedFilename, out, null);
 
-    cb(
+    callback(
       null,
       [
         "require('!",
