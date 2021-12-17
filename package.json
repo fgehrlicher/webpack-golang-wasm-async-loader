@@ -1,6 +1,6 @@
 {
-  "name": "golang-wasm-async-loader",
-  "version": "0.4.1",
+  "name": "@fgehrlicher/golang-wasm-async-loader",
+  "version": "0.4.2",
   "description": "Golang WebAssembly loader for webpack that generates an async pattern for working with Go's WebAssembly output",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/fgehrlicher/webpack-golang-wasm-async-loader"
+    "url": "git+https://github.com/fgehrlicher/webpack-golang-wasm-async-loader"
   },
   "publishConfig": {
     "registry":"https://npm.pkg.github.com"
