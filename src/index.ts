@@ -18,7 +18,8 @@ function loader(content: string) {
       GOCACHE: join(__dirname, "./.gocache"),
       GOOS: "js",
       GOARCH: "wasm"
-    }
+    },
+    cwd: 'wasm',
   };
 
   const goBin = getGoBin(opts.env.GOROOT);
